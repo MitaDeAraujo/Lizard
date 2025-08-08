@@ -45,14 +45,16 @@
     <button class="center-btn" id="lizardBtn">
         <img src="lizard-modified.png" alt="Lizard">
     </button>
-    <audio id="lizardSound" src="lizard-made-with-Voicemod.mp3"></audio>
-    <script>
-        document.getElementById('lizardBtn').onclick = function() {
-            // Create a new audio instance each click for spamming
-            const sound = new Audio('lizard-made-with-Voicemod.mp3');
-            sound.play();
-        };
-    </script>
+    <audio id="lizardSound" src="lizard-made-with-Voicemod.mp3" preload="auto"></audio>
+<script>
+    const lizardSound = document.getElementById('lizardSound');
+    document.getElementById('lizardBtn').onclick = function() {
+        // Clone the preloaded audio node for instant playback
+        const sound = lizardSound.cloneNode();
+        sound.play();
+    };
+</script>
 </body>
 </html>
+
 
